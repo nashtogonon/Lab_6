@@ -1,0 +1,39 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.linalg as la
+%matplotlib inline
+
+#ref https://github.com/R0ckie/Laboratory-6/blob/main/LinAlg_Lab6.ipynb
+
+A = np.array([[3,6,9], [4,8,12], [5,10,15]])
+B = np.array([[2,4,6], [1,2,3], [3,4,5]])
+C = np.array([[1,1,1], [1,1,1], [1,1,1]])
+D = np.array([[0,0,0], [0,0,0], [0,0,0]])
+E = np.array([])
+Y = np.eye(3)
+
+def show_mat(matrix):
+  if matrix.size > 0:
+    X = (matrix==0).all()
+    Z = (matrix==1).all()
+    Id = np.all(np.equal(matrix,A))
+    is_square = True if matrix.shape[0] == matrix.shape[1] else False
+    print(f'Matrix:\n{matrix}\n\nShape:\t{matrix.shape}\nRank:\t{matrix.ndim}\nIs Square: {is_square}'
+          f'\nIs zero identity: {X}\nIs Z identity: {Z}\nIs Identity Matrix: {Id}')
+    
+  else: 
+    print("Null Identity") 
+
+
+show_mat(A)
+print()
+show_mat(B)
+print()
+show_mat(C)
+print()
+show_mat(D)
+print()
+show_mat(E)
+print()
+show_mat(Y)
+print()
