@@ -1,0 +1,115 @@
+import numpy as np
+#ref https://github.com/R0ckie/Laboratory-6/blob/main/LinAlg_Lab6.ipynb
+
+A = np.array([[1, 2, 3],
+              [2, 4, 6],
+              [3, 6, 9]])
+
+B = np.array([[2, 3, 4],
+              [5, 6, 7],
+              [8, 9, 10]])
+
+C = 3
+
+D = np.array([[6, 5, 4],
+              [3, 2, 1],
+              [2, 6, 9]])
+E = 3
+
+
+def mat_operations(matrix1, matrix2):
+
+    if np.isscalar(matrix1) == True and np.isscalar(matrix2) == True:
+        print(matrix1, 'Is a scalar')
+        print(matrix2, 'Is a scalar')
+        print('\t')
+
+    elif np.isscalar(matrix1):
+        print(matrix1, 'Is a scalar')
+        print('\t')
+        if matrix2.size > 0:
+            is_square = True if matrix2.shape[0] == matrix2.shape[1] else False
+            print(f'Matrix:\n{matrix2}\n'
+                  f'\nShape:\t{matrix2.shape}'
+                  f'\nSize: \t{matrix2.size}'
+                  f'\nRank:\t{matrix2.ndim}'
+                  f'\nSquare: {is_square}\n',
+                  f'\t')
+        else:
+            print('No matrix detected')
+
+    elif np.isscalar(matrix2):
+        print(matrix2, 'Scalar')
+        print('\t')
+        if matrix1.size > 0:
+            is_square = True if matrix1.shape[0] == matrix1.shape[1] else False
+            print(f'Matrix:\n{matrix1}\n'
+                  f'\nShape:\t{matrix1.shape}'
+                  f'\nSize: \t{matrix1.size}'
+                  f'\nRank:\t{matrix1.ndim}'
+                  f'\nSquare: {is_square}\n',
+                  f'\t')
+        else:
+            print('No matrix detected')
+
+    elif np.isscalar(matrix1) == False and np.isscalar(matrix2) == False:
+        if matrix1.size > 0 and matrix2.size > 0:
+            is_square = True if matrix1.shape[0] == matrix1.shape[1] else False
+            print(f'Matrix:\n{matrix1}\n'
+                  f'\nShape:\t{matrix1.shape}'
+                  f'\nSize: \t{matrix1.size}'
+                  f'\nRank:\t{matrix1.ndim}'
+                  f'\nSquare: {is_square}\n',
+                  f'\t')
+            is_square = True if matrix2.shape[0] == matrix2.shape[1] else False
+            print(f'Matrix:\n{matrix2}\n'
+                  f'\nShape:\t{matrix2.shape}'
+                  f'\nSize: \t{matrix2.size}'
+                  f'\nRank:\t{matrix2.ndim}'
+                  f'\nSquare: {is_square}\n',
+                  f'\t')
+        else:
+            print('No matrix detected')
+
+    if np.isscalar(matrix1):
+        add = matrix1 + matrix2
+        subtract = matrix1 - matrix2
+        multiply = matrix1 * matrix2
+        divide = matrix1 // matrix2
+        print('Addition: ', matrix1, '+', matrix2, '=', add)
+        print('Subtraction: ', matrix1, '-', matrix2, '=', subtract)
+        print('Multiplication: ', matrix1, '*', matrix2, '=', multiply)
+        print('Division: ', matrix1, '/', matrix2, '=', divide)
+
+    elif np.isscalar(matrix2):
+        add = matrix1 + matrix2
+        subtract = matrix1 - matrix2
+        multiply = matrix1 * matrix2
+        divide = matrix1 // matrix2
+        print('Addition: ', matrix1, '+', matrix2, '=', add)
+        print('Subtraction: ', matrix1, '-', matrix2, '=', subtract)
+        print('Multiplication: ', matrix1, '*', matrix2, '=', multiply)
+        print('Division: ', matrix1, '/', matrix2, '=', divide)
+
+    elif matrix1.size == matrix2.size:
+        add = matrix1 + matrix2
+        subtract = matrix1 - matrix2
+        multiply = matrix1 * matrix2
+        divide = matrix1 // matrix2
+        print('Addition: ', matrix1, '+', matrix2, '=', add)
+        print('Subtraction: ', matrix1, '-', matrix2, '=', subtract)
+        print('Multiplication: ', matrix1, '*', matrix2, '=', multiply)
+        print('Division: ', matrix1, '/', matrix2, '=', divide)
+
+    else:
+        print("Unequal Matrix")
+
+
+mat_operations(A, B)
+print('\t')
+mat_operations(A, C)
+print('\t')
+mat_operations(A, D)
+print('\t')
+mat_operations(C, E)
+print('\t')
